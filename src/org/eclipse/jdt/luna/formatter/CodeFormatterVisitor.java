@@ -5404,8 +5404,8 @@ public class CodeFormatterVisitor extends ASTVisitor {
 		}
 
 		this.scribe.printComment(Scribe.PRESERVE_EMPTY_LINES_IN_STRING_LITERAL_CONCATENATION);
-		ASTNode[] fragments = stringLiteral.literals;
-		int fragmentsSize = stringLiteral.counter;
+		ASTNode[] fragments = stringLiteral.getLiterals();
+		int fragmentsSize = fragments.length;
 
 		final LegacyBinaryOperatorFormatOption binopt = this.legacy.getFormatOptionForStringConcat();
 

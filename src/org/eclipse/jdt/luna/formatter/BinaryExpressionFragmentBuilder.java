@@ -368,8 +368,10 @@ class BinaryExpressionFragmentBuilder
 		if (((stringLiteral.bits & ASTNode.ParenthesizedMASK) >> ASTNode.ParenthesizedSHIFT) != 0) {
 			addRealFragment(stringLiteral);
 		} else {
-			for (int i = 0, max = stringLiteral.counter; i < max; i++) {
-				addRealFragment(stringLiteral.literals[i]);
+			StringLiteral[] literals;
+			literals=	stringLiteral.getLiterals();
+			for (int i = 0, max = literals.length; i < max; i++) {
+				addRealFragment(literals[i]);
 				if (i < max - 1) {
 					this.operatorsList.add(Integer.valueOf(TerminalTokens.TokenNamePLUS));
 				}
